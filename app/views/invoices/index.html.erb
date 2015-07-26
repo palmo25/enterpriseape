@@ -1,8 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Invoices</h1>
-
-<table>
+<div class="media">
+  <div class="media-body">
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Date</th>
@@ -16,7 +17,7 @@
   <tbody>
     <% @invoices.each do |invoice| %>
       <tr>
-        <td><%= invoice.date %></td>
+        <td><%= invoice.date.strftime("%d/%m/%Y") %></td>
         <td><%= invoice.company %></td>
         <td><%= invoice.tax %></td>
         <td><%= invoice.salesperson %></td>
@@ -27,7 +28,8 @@
     <% end %>
   </tbody>
 </table>
-
+  </div>
+</div>
 <br>
 
 <%= link_to 'New Invoice', new_invoice_path %>
